@@ -1,0 +1,3 @@
+parameters:
+    # 繰り返し可能時に中身の型指定がされているかのチェック(false=不要)
+    checkMissingIterableValueType: false
