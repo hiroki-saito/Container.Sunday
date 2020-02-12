@@ -3,9 +3,17 @@ name: CI
 on: pull_request
 
 jobs:
-  first-job:
-    name: first job
+  tests:
+    name: cs, static_analysis, tests
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
-      - run: pwd
+      - uses: actions/checkout@v2
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: cs, static_analysis, tests
+        run: composer tests
