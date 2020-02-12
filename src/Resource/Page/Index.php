@@ -5,6 +5,11 @@ use BEAR\Resource\ResourceObject;
 
 class Index extends ResourceObject
 {
+    /**
+     * @param string $name
+     *
+     * @return ResourceObject
+     */
     public function onGet(string $name = 'BEAR.Sunday') : ResourceObject
     {
         $this->body = [

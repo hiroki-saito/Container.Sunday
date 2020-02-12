@@ -38,12 +38,17 @@
         ],
         "tests": [
             "@cs",
-            "phpmd src,tests text ./phpmd.xml",
-            "phpstan analyse -l max src tests -c phpstan.neon --no-progress",
+            "@static_analysis",
             "@test"
         ],
         "coverage": [
             "php -dzend_extension=xdebug.so phpunit --coverage-text --coverage-html=build/coverage"
+        ],
+        "static_analysis": [
+            "phpstan analyse -l max src tests -c phpstan.neon --no-progress"
+        ],
+        "static_analysis_phpmd": [
+            "phpmd src,tests text ./phpmd.xml"
         ],
         "cs": [
             "php-cs-fixer fix -v --dry-run",

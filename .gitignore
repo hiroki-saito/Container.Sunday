@@ -18,3 +18,4 @@ phpunit.xml
 /docs/api/
 autoload.php
 .docker-sync
+.phpunit.result.cache
